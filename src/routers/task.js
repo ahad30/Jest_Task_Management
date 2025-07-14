@@ -42,9 +42,10 @@ router.get('/tasks', auth, async (req, res) => {
                 skip: parseInt(req.query.skip),
                 sort
             }
-        }).execPopulate()
+        })
         res.send(req.user.tasks)
     } catch (e) {
+        console.log(e)
         res.status(500).send()
     }
 })
